@@ -135,6 +135,17 @@ python cs285/scripts/run_multitask_actor_critic.py \
 --multitask_learning True \
 --tasks HalfCheetah-v4 HalfCheetah_A HalfCheetah_B HalfCheetah_C HalfCheetah_D HalfCheetah_E HalfCheetah_F
 ```
+### Multitask Learning Architecture 2
+```
+python cs285/scripts/run_multitask_actor_critic.py \
+--ep_len 150 --discount 0.90 --scalar_log_freq 1 \
+-n 150 -l 2 -s 32 -b 30000 -eb 1500 -lr 0.02 \
+--exp_name Multitask_Architecture_2_HalfCheetah_v4_A \
+-ntu 1 -ngsptu 100 \
+--num_tasks 2 \
+--multitask_learning True --share_policy True \
+--tasks HalfCheetah-v4 HalfCheetah_A
+```
 
 ### Multitask Learning Architecture 3
 Sharing critic, shared layer + task-specific critic
@@ -236,4 +247,10 @@ python cs285/scripts/run_continual_actor_critic.py \
 --multitask_learning True --continual_learning True \
 --tasks HalfCheetah-v4 \
 --new_tasks HalfCheetah_A
+```
+
+
+## To compress to a zip file:
+```
+zip -vr submit.zip submit README.md -x "*.DS Store"
 ```
